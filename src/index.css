@@ -33,3 +33,7 @@
 html {
   background-color: var(--light-grey);
 }
+
+.main-container {
+  display: flex;
+}
