@@ -1,9 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { Location } from "react-router-dom";
 import { useState } from "react";
 
-import { ReactComponent as BurgerSvg } from "../../../assets/burger.svg";
-import { ReactComponent as CrossSvg } from "../../../assets/cross.svg";
 import { ReactComponent as MainSvg } from "../../../assets/main.svg";
 import { ReactComponent as MainGSvg } from "../../../assets/main-gradient.svg";
 import { ReactComponent as CalendarSvg } from "../../../assets/calendar.svg"
