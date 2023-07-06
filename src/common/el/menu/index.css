@@ -2,7 +2,7 @@
     width: 300px;
     height: 100vh;
 
-    padding: 20px 14px;
+    padding: 20px 10px;
 
     border: .5px solid var(--grey);;
     border-radius: 0px var(--border-radius) var(--border-radius) 0px;
@@ -12,6 +12,12 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transition: all .5s;
 }
 
 .menu-opened-container a {
@@ -25,19 +31,79 @@
 
 .menu-link-name {
     font-size: 1.25em;
+
+    white-space: nowrap;
+
+    animation: fade 1s;
 }
 
 .menu-close-button {
-    padding-left: 6px;
+    height: 24px;
 
     background-color: transparent;
 
     border: none;
 
+    position: relative;
+
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+
+    transition: all .5s;
 
     cursor: pointer;
+}
+
+.burger-button {
+    width: 24px;
+    height: 3px;
+
+    background: var(--black);
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all .5s;
+}
+
+.burger-button::after,
+.burger-button::before {
+    content: '';
+
+    width: 24px;
+    height: 3px;
+
+    background: var(--black);
+    border-radius: 10px;
+
+    transition: all .5s;
+
+    position: absolute;
+}
+
+.burger-button::before {
+    transform: translateY(-10px);
+}
+
+.burger-button::after {
+    transform: translateY(10px);
+}
+
+/* Animation for burger */
+
+.menu-close-button.active .burger-button {
+    background: transparent;
+}
+
+.menu-close-button.active .burger-button::before {
+    transform: rotate(45deg);
+}
+
+.menu-close-button.active .burger-button::after {
+    transform: rotate(-45deg);
 }
 
 .menu-items {
@@ -62,15 +128,17 @@
     margin-top: auto;
 }
 
-.active {
+.menu-items .active {
     background-color: #ffdfdd;
 }
 
 /* #FE5F55, #FFD151 */
-.active .icon-svg g {
-    fill: var(--red);
-}
 
-.active .icon-svg path {
-    fill: var(--red);
-}
+@keyframes fade {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }

@@ -1,5 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { Location } from "react-router-dom";
+import { useState } from "react";
 
+import { ReactComponent as BurgerSvg } from "../../../assets/burger.svg";
 import { ReactComponent as CrossSvg } from "../../../assets/cross.svg";
 import { ReactComponent as MainSvg } from "../../../assets/main.svg";
 import { ReactComponent as MainGSvg } from "../../../assets/main-gradient.svg";
@@ -12,44 +15,87 @@ import { ReactComponent as UserGSvg } from "../../../assets/user-gradient.svg"
 
 import "./index.css";
 
+
 const Menu = () => {
+    const [isActive, setIsActive] = useState<boolean>(false);
+    const location = useLocation();
+
+    function handleSetIsActive() {
+        setIsActive(!isActive);
+    }
+
     return (
         <div className="menu-container">
-            <div className="menu-opened-container">
-                <button className="menu-close-button">
-                    <CrossSvg />
-                </button>
+            <div className="menu-opened-container" style={{ width: isActive ? "300px" : "64px" }}>
+                {
+                    isActive ?
+                        <button
+                            className="menu-close-button active"
+                            onClick={handleSetIsActive}
+                        >
+                            <div className="burger-button"></div>
+                        </button>
+                        :
+                        <button
+                            className="menu-close-button"
+                            onClick={handleSetIsActive}
+                        >
+                            <div className="burger-button"></div>
+                        </button>
+                }
+
+
 
                 <ul className="menu-items">
                     <li className="item">
                         <NavLink to="/">
-                            <MainSvg className="icon-svg" />
+                            {
+                                location.pathname === "/" ?
+                                    <MainGSvg />
+                                    :
+                                    <MainSvg className="icon-svg" />
+                            }
 
-                            <span className="menu-link-name">Главная</span>
+                            <span className="menu-link-name" style={{ display: isActive ? "block" : "none"}}>Главная</span>
                         </NavLink>
                     </li>
 
                     <li className="item">
                         <NavLink to="/calendar">
-                            <CalendarSvg className="icon-svg" />
+                            {
+                                location.pathname === "/calendar" ?
+                                    <CalendarGSvg />
+                                    :
+                                    <CalendarSvg className="icon-svg" />
+                            }
 
-                            <span className="menu-link-name">Календарь</span>
+                            <span className="menu-link-name" style={{ display: isActive ? "block" : "none" }}>Календарь</span>
                         </NavLink>
                     </li>
 
                     <li className="item">
                         <NavLink to="/tasks">
-                            <NoteSvg className="icon-svg" />
+                            {
+                                location.pathname === "/tasks" ?
+                                    <NoteGSvg />
+                                    :
+                                    <NoteSvg className="icon-svg" />
+                            }
 
-                            <span className="menu-link-name">Список дел</span>
+                            <span className="menu-link-name" style={{ display: isActive ? "block" : "none" }}>Список дел</span>
                         </NavLink>
                     </li>
 
                     <li className="item last-item">
                         <NavLink to="/profile">
-                            <UserSvg className="icon-svg" />
+                            {
+                                location.pathname === "/profile" ?
+                                    <UserGSvg />
+                                    :
+                                    <UserSvg className="icon-svg" />
+                            }
 
-                            <span className="menu-link-name">Профиль</span>
+                            <span className="menu-link-name" style={{ display: isActive ? "block" : "none" }}>Профиль</span>
                         </NavLink>
                     </li>
                 </ul>
