@@ -36,4 +36,10 @@ html {
 
 .main-container {
   display: flex;
+
+  width: 100vw;
+}
+
+.content-container {
+  width: max(100vw - 300px, 100vw);
 }

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap');
+
+.header-container {
+    height: 48px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-title {
+    font-family: 'MuseoModerno', cursive;
+    font-size: 2rem;
+    text-decoration: none;
+    background: linear-gradient(90deg, #FE5F55, #FFD151);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-container hr {
+    width: 100%;
+
+    border: .25px solid var(--grey);
+
+    color: var(--grey);
+    background-color: transparent;
+}
