@@ -1,0 +1,131 @@
+.page-tasks-container {
+    width: 1224px;
+    margin: 0 auto;
+    margin-top: 24px;
+}
+
+.greeting {
+    color: var(--grey);
+}
+
+.page-tasks-header {
+    margin-top: 8px;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-header-title {
+    font-size: 2rem;
+    color: var(--black);
+    font-weight: bold;
+}
+
+.create-button {
+    padding: .5rem 3rem;
+
+    border: none;
+    border-radius: var(--border-radius);
+
+    background-color: var(--red);
+
+    font-size: 1.5rem;
+    color: white;
+
+    cursor: pointer;
+    transition: .5s;
+}
+
+.create-button:hover {
+    background-color: brown;
+}
+
+.edit-button {
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+}
+
+/* General table stylings */
+
+.tasks-table {
+    width: 100%;
+    margin-top: 24px;
+
+    border-radius: var(--border-radius);
+    border-collapse: separate;
+    border-spacing: 0;
+
+    color: var(--black);
+}
+
+.tasks-table thead {
+    color: var(--grey);
+}
+
+/* spacing between thead and tbody */
+.tasks-table tbody::before {
+    content:"@";
+    display:block;
+    line-height:16px;
+    text-indent:-99999px;
+}
+
+.tasks-table td {
+    background-color: white;
+}
+
+.tasks-table td:last-child{
+    text-align: center;
+}
+
+.tasks-table th, 
+.tasks-table td, 
+.tasks-table tr {
+    padding: 8px;
+
+    border: .5px solid var(--grey);
+}
+
+.tasks-table tr:last-child th:first-child,
+.tasks-table tr:last-child td:first-child {
+    border-bottom-left-radius: var(--border-radius);
+}
+    
+.tasks-table tr:last-child th:last-child,
+.tasks-table tr:last-child td:last-child {
+    border-bottom-right-radius: var(--border-radius);
+}
+
+.tasks-table tr:last-child th:first-child,
+.tasks-table tr:first-child td:first-child {
+    border-top-left-radius: var(--border-radius);
+}
+    
+.tasks-table tr:last-child th:last-child,
+.tasks-table tr:first-child td:last-child  {
+    border-top-right-radius: var(--border-radius);
+}
+
+/* Table width styling */
+
+.tasks-table th:nth-child(1),
+.tasks-table td:nth-child(1) {
+    width: 288px;
+}
+
+.tasks-table th:nth-child(2),
+.tasks-table td:nth-child(2) {
+    width: 416px;
+}
+
+.tasks-table th:nth-child(3),
+.tasks-table td:nth-child(3) {
+    width: 312px;
+}
+
+.tasks-table th:nth-child(4),
+.tasks-table td:nth-child(4) {
+    width: 146px;
+}
