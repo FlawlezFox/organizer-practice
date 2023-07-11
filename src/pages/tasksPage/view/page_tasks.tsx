@@ -1,12 +1,16 @@
 import Button from "../../../common/el/button";
-import tasks from "./tasks";
 import { ReactComponent as EditSvg } from "../../../assets/edit.svg";
+import { observer } from "mobx-react";
+
+import TasksModal from "../el/TasksModal";
+import tasksStore from "../../../store/tasksStore";
 
 import "../../tasksPage/styles/page_tasks.css";
 
 const TasksPage = () => {
     function handleCreateTask() {
-        alert("");
+        const modal: any = document.querySelector(".tasks-modal");
+        modal.showModal();
     }
 
     return (
@@ -36,8 +40,8 @@ const TasksPage = () => {
 
                 <tbody>
                     {
-                        tasks.map(task => {
-                            return <tr>
+                        tasksStore.tasks.map(task => {
+                            return <tr key={task.id}>
                                 <td>{task.name}</td>
                                 <td>{task.description}</td>
                                 <td>{task.event}</td>
@@ -60,8 +64,10 @@ const TasksPage = () => {
                     }
                 </tbody>
             </table>
+
+            <TasksModal />
         </div>
     );
 }
 
-export default TasksPage;
+export default observer(TasksPage);

@@ -76,14 +76,20 @@
     background-color: white;
 }
 
-.tasks-table td:last-child{
+.tasks-table td:last-child,
+.tasks-table td:nth-child(4) {
     text-align: center;
 }
 
-.tasks-table th, 
+.tasks-table th {
+    padding: 8px;
+
+    border: .5px solid var(--grey);
+}
+
 .tasks-table td, 
 .tasks-table tr {
-    padding: 8px;
+    padding: 16px;
 
     border: .5px solid var(--grey);
 }
